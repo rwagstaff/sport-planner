@@ -1,0 +1,47 @@
+spring:
+  profiles.active: default
+  datasource:
+    url: jdbc:mysql://localhost/sport_planner
+    username: rwagstaff
+    password: therock8484
+    driverClassName: com.mysql.jdbc.Driver
+  jpa:
+    show-sql: true
+    hibernate.ddl-auto: create
+    generate-ddl: true
+
+logging:
+  level:
+    ROOT: INFO
+    org.springframework: INFO
+    org.hibernate: INFO
+---
+
+spring:
+  profiles: development
+  datasource:
+    url: jdbc:mysql://localhost/sport_planner
+
+---
+
+spring:
+  profiles: uat
+  datasource:
+    url: jdbc:mysql://localhost/sport_planner
+
+---
+
+spring:
+  profiles: prod
+  datasource:
+    url: jdbc:mysql://localhost/sport_planner
+
+
+
+
+
+
+
+
+
+
