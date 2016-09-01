@@ -8,7 +8,7 @@ class FriendRepositoryTest extends AbstractRepositoryTest[Friend] {
   @Autowired val repo: FriendRepository = null
 
   override protected def instance: Friend = {
-    new Friend("some guy")
+    new Friend("some guy", null)
   }
 
 

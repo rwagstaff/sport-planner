@@ -72,7 +72,11 @@ dependencies {
     compile('com.google.guava:guava:19.0')
 
     compile("org.springframework.boot:spring-boot-configuration-processor")
+
+    // Scala
     compile 'org.scala-lang:scala-library:2.11.8'
+    compile group: 'com.typesafe.scala-logging', name: 'scala-logging_2.11', version: '3.4.0'
+
     // end::actuator[]
     // tag::tests[]
 
