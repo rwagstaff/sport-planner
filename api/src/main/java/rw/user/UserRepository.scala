@@ -3,7 +3,4 @@ package rw.user
 import org.springframework.data.jpa.repository.JpaRepository
 
 
-trait UserRepository extends JpaRepository[User, Integer]  {
-
-
-}
+trait UserRepository extends JpaRepository[User, Integer]
