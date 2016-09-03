@@ -11,30 +11,9 @@ apply plugin: 'java'
 apply plugin: 'scala'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
-apply plugin: 'sonar-runner'
-apply plugin: 'jacoco'
+// apply plugin: 'sonar-runner'
+// apply plugin: 'jacoco'
 
-
-sonarRunner {
-    sonarProperties {
-        property "sonar.projectName", "party-planner"
-        property "sonar.projectKey", "party-planner"
-        property "sonar.host.url", "http://loncapjen-vd1:9000"
-        property "sonar.jdbc.url", "jdbc:mysql://loncapjen-vd1:3306/sonar"
-        property "sonar.jdbc.driverClassName", "com.mysql.jdbc.Driver"
-        property "sonar.jdbc.username", "capitalab"
-        property "sonar.jdbc.password", "C4pit4l"
-        property "sonar.junit.reportsPath", "$buildDir/test-results"
-        property "sonar.jacoco.reportPath", "$buildDir/jacoco/jacocoTest.exec"
-    }
-}
-
-test {
-    jacoco {
-        destinationFile = file("$buildDir/jacoco/jacocoTest.exec")
-    }
-    systemProperties System.properties
-}
 
 
 jar {
