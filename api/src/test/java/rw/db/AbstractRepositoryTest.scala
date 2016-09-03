@@ -1,25 +1,22 @@
 package rw.db
 
+import com.typesafe.scalalogging.LazyLogging
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.slf4j.Logger
-import org.slf4j.LoggerFactory
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner
 import rw.entity.SequenceId
 
-object AbstractRepositoryTest {
-  private val LOG: Logger = LoggerFactory.getLogger(classOf[AbstractRepositoryTest[_ <: SequenceId]])
-}
+
 @RunWith(classOf[SpringJUnit4ClassRunner])
 @SpringBootTest
-abstract class AbstractRepositoryTest[T <: SequenceId] {
+abstract class AbstractRepositoryTest[T <: SequenceId] extends LazyLogging {
   @Test def shouldDoCrud() {
     // Create
     var entity: T = instance
     getRepository.saveAndFlush(entity)
-    AbstractRepositoryTest.LOG.debug("Test entity {} saved with id {}", entity.getClass, entity.getId)
+    logger.debug(s"Test entity $entity.getClass saved with id $entity.id")
     // Read
     entity = getRepository.findOne(entity.getId)
     // Update
@@ -27,7 +24,7 @@ abstract class AbstractRepositoryTest[T <: SequenceId] {
     getRepository.saveAndFlush(entity)
     // Delete
     getRepository.delete(entity.getId)
-    AbstractRepositoryTest.LOG.debug("Deleted test entity {} with id {}", entity.getClass, entity.getId)
+    logger.debug(s"Deleted test entity $entity.getClass with id $entity.id")
   }
 
   protected def instance: T

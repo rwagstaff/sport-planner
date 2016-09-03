@@ -15,19 +15,27 @@ logging:
     ROOT: INFO
     org.springframework: INFO
     org.hibernate: INFO
+
+# Custom config
+rest:
+    proxy: true
+
 ---
 
 spring:
-  profiles: development
+  profiles: dev
   datasource:
     url: jdbc:mysql://localhost/sport_planner
-
+rest:
+    proxy: false
 ---
 
 spring:
   profiles: uat
   datasource:
     url: jdbc:mysql://localhost/sport_planner
+rest:
+    proxy: false
 
 ---
 
@@ -35,7 +43,8 @@ spring:
   profiles: prod
   datasource:
     url: jdbc:mysql://localhost/sport_planner
-
+rest:
+    proxy: false
 
 
 
