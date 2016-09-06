@@ -1,5 +1,6 @@
 package rw.entity
 
+import javax.persistence.Column
 import javax.validation.constraints.NotNull
 
 import org.hibernate.validator.constraints.Email
@@ -15,6 +16,7 @@ trait Contact {
   @NotNull
   @BeanProperty
   @Email
+  @Column(unique=true)
   var email: String = _
 
 

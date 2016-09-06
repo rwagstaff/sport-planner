@@ -6,9 +6,9 @@ import rw.entity.{Contact, SequenceId}
 
 @Entity
 @Table
-class Event(n: String) extends SequenceId with Contact {
+class Event(n: String) extends SequenceId {
 
-  name = n
+  var name: String = n
 
   // For JPA
   def this() {
