@@ -24,5 +24,12 @@ class UserControllerTest extends AbstractControllerTest {
     assert(userResponse.getStatusCode.is2xxSuccessful())
   }
 
+  @Test
+  def shouldFindAllUsers() {
+    val userResponse : ResponseEntity[Array[User]] = getTemplate.getForEntity("/users", classOf[Array[User]])
+    assert(userResponse.getStatusCode.is2xxSuccessful())
+    assert(userResponse.getBody != null)
+  }
+
 
 }

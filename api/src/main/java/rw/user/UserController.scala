@@ -13,6 +13,11 @@ class UserController {
     service.findUser(id)
   }
 
+  @RequestMapping(path = Array("users"), method = Array(RequestMethod.GET))
+  def findUsers(): java.util.List[User] = {
+    service.findAll()
+  }
+
   @RequestMapping(path = Array("user"), method = Array(RequestMethod.POST))
   def saveDates(@RequestBody user: User): Int = {
     service.save(user)

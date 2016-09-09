@@ -1,3 +1,10 @@
 <h1>
-  {{title}} {{getANumber()}}
+  <input [(ngModel)]="title" placeholder="title">
+  {{title}} {{url}}
+  <p>An async object {{user?.email}}</p>
+
+  <ul>
+    <li *ngFor="let user of users$ | async"></li>
+  </ul>
+
 </h1>
